@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fees | VIVA Therapy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      color: #2c2c2a;
+      background: #ffffff;
+    }
+
+    .fees-page {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+
+    .fees-eyebrow {
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #888780;
+      margin-bottom: 0.75rem;
+      font-weight: 400;
+    }
+
+    .fees-headline {
+      font-family: 'Lora', serif;
+      font-size: 2rem;
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 0.75rem;
+      color: #2c2c2a;
+    }
+
+    .fees-intro {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #5f5e5a;
+      max-width: 580px;
+      margin-bottom: 2.5rem;
+    }
+
+    .fees-summary {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 2.5rem;
+    }
+
+    .summary-card {
+      background: #f1efe8;
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      border: 0.5px solid rgba(44,44,42,0.12);
+    }
+
+    .summary-type {
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #888780;
+      margin-bottom: 0.4rem;
+      font-weight: 400;
+    }
+
+    .summary-price {
+      font-family: 'Lora', serif;
+      font-size: 1.75rem;
+      font-weight: 400;
+      color: #2c2c2a;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .summary-duration {
+      font-size: 13px;
+      color: #5f5e5a;
+      display: block;
+    }
+
+    .summary-note {
+      font-size: 12px;
+      color: #888780;
+      margin-top: 0.25rem;
+      display: block;
+    }
+
+    .divider-label {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888780;
+      margin-bottom: 1rem;
+      padding-bottom: 0.6rem;
+      border-bottom: 0.5px solid rgba(44,44,42,0.15);
+      font-weight: 400;
+    }
+
+    .therapist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 12px;
+      margin-bottom: 2.5rem;
+    }
+
+    .therapist-card {
+      background: #ffffff;
+      border: 0.5px solid rgba(44,44,42,0.15);
+      border-radius: 12px;
+      padding: 1.1rem 1.25rem;
+    }
+
+    .therapist-card.coming-soon {
+      opacity: 0.5;
+    }
+
+    .therapist-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: #e6f1fb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 500;
+      color: #185fa5;
+      margin-bottom: 0.85rem;
+    }
+
+    .therapist-avatar.neutral {
+      background: #f1efe8;
+      color: #888780;
+    }
+
+    .therapist-name {
+      font-size: 15px;
+      font-weight: 500;
+      color: #2c2c2a;
+      margin-bottom: 0.35rem;
+    }
+
+    .fee-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.4rem;
+    }
+
+    .fee-tag {
+      display: inline-block;
+      font-size: 11px;
+      padding: 2px 8px;
+      border-radius: 6px;
+      font-weight: 400;
+    }
+
+    .tag-individual {
+      background: #e6f1fb;
+      color: #185fa5;
+    }
+
+    .tag-couples {
+      background: #f0ebf8;
+      color: #5b3a8a;
+    }
+
+    .tag-soon {
+      background: #f1efe8;
+      color: #888780;
+      border: 0.5px solid rgba(44,44,42,0.15);
+    }
+
+    .fee-amount {
+      font-size: 14px;
+      font-weight: 500;
+      color: #2c2c2a;
+    }
+
+    .booking-strip {
+      background: #f1efe8;
+      border-radius: 12px;
+      border: 0.5px solid rgba(44,44,42,0.12);
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .booking-text h3 {
+      font-family: 'Lora', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #2c2c2a;
+      margin-bottom: 0.3rem;
+    }
+
+    .booking-text p {
+      font-size: 13px;
+      color: #5f5e5a;
+      line-height: 1.5;
+    }
+
+    .booking-btn {
+      display: inline-block;
+      background: #2c2c2a;
+      color: #ffffff;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 400;
+      padding: 0.65rem 1.4rem;
+      border-radius: 8px;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .booking-btn:hover {
+      background: #444441;
+    }
+
+    @media (max-width: 560px) {
+      .fees-summary { grid-template-columns: 1fr; }
+      .fees-headline { font-size: 1.5rem; }
+      .booking-strip { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="fees-page">
+
+    <p class="fees-eyebrow">For clients</p>
+    <h1 class="fees-headline">Simple, transparent fees</h1>
+    <p class="fees-intro">We believe in clear, honest pricing. All sessions are held online and are charged per session -- no blocks or packages required. Below you'll find our fees by session type and by therapist.</p>
+
+    <div class="fees-summary">
+      <div class="summary-card">
+        <p class="summary-type">Individual therapy</p>
+        <span class="summary-price">£65 – £85</span>
+        <span class="summary-duration">50-minute session</span>
+        <span class="summary-note">Fee varies by therapist</span>
+      </div>
+      <div class="summary-card">
+        <p class="summary-type">Couples therapy</p>
+        <span class="summary-price">£110</span>
+        <span class="summary-duration">60-minute session</span>
+        <span class="summary-note">All couples therapists</span>
+      </div>
+    </div>
+
+    <p class="divider-label">Fees by therapist</p>
+
+    <div class="therapist-grid">
+
+      <div class="therapist-card">
+        <div class="therapist-avatar">AL</div>
+        <p class="therapist-name">Anne Lewis</p>
+        <div class="fee-row">
+          <span class="fee-tag tag-individual">Individuals</span>
+          <span class="fee-amount">£85</span>
+        </div>
+        <div class="fee-row">
+          <span class="fee-tag tag-couples">Couples</span>
+          <span class="fee-amount">£110</span>
+        </div>
+      </div>
+
+      <div class="therapist-card">
+        <div class="therapist-avatar">KS</div>
+        <p class="therapist-name">Keely Sadler</p>
+        <div class="fee-row">
+          <span class="fee-tag tag-couples">Couples</span>
+          <span class="fee-amount">£110</span>
+        </div>
+      </div>
+
+      <div class="therapist-card">
+        <div class="therapist-avatar">VR</div>
+        <p class="therapist-name">Vicky Rankin</p>
+        <div class="fee-row">
+          <span class="fee-tag tag-couples">Couples</span>
+          <span class="fee-amount">£110</span>
+        </div>
+      </div>
+
+      <div class="therapist-card">
+        <div class="therapist-avatar">HI</div>
+        <p class="therapist-name">Holly Ibbs</p>
+        <div class="fee-row">
+          <span class="fee-tag tag-individual">Individuals</span>
+          <span class="fee-amount">£65</span>
+        </div>
+      </div>
+
+      <div class="therapist-card">
+        <div class="therapist-avatar">KL</div>
+        <p class="therapist-name">Kelly Lloyd</p>
+        <div class="fee-row">
+          <span class="fee-tag tag-individual">Individuals</span>
+          <span class="fee-amount">£65</span>
+        </div>
+      </div>
+
+      <div class="therapist-card">
+        <div class="therapist-avatar">AW</div>
+        <p class="therapist-name">Alexandra Weir</p>
+        <div class="fee-row">
+          <span class="fee-tag tag-individual">Individuals</span>
+          <span class="fee-amount">£65</span>
+        </div>
+      </div>
+
+      <!-- Lisa Charter - remove the coming-soon class and add fee rows when ready -->
+      <div class="therapist-card coming-soon">
+        <div class="therapist-avatar neutral">LC</div>
+        <p class="therapist-name">Lisa Charter</p>
+        <div class="fee-row">
+          <span class="fee-tag tag-soon">Coming soon</span>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="booking-strip">
+      <div class="booking-text">
+        <h3>Not sure which therapist is right for you?</h3>
+        <p>Complete our short enquiry form and we'll match you with the best fit.<br>We'll get back to you within one working day.</p>
+      </div>
+      <a class="booking-btn" href="https://www.vivatherapy.co.uk/get-started">Get started</a>
+    </div>
+
+  </div>
+</body>
+</html>
